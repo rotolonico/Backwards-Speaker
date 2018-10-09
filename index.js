@@ -1,5 +1,3 @@
-"use strict";
-
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -14,13 +12,7 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/usertext", function(req, res) {
-  var input =
-    req.body.result &&
-    req.body.result.parameters &&
-    req.body.result.parameters.userText
-      ? req.body.result.parameters.userText
-      : "Something has gone terribly wrong! Try again";
-
+  var input = req.body.result && req.body.result.parameters && req.body.result.parameters.userText ? req.body.result.parameters.userText : "Something has gone terribly wrong! Try again";
       input = input.split('');
       var speech;
       for (i = input.length; i < 0; i--){
